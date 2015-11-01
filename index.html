@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>image map tool</title>
+    <style>
+      body {
+        background: #dddddd;
+        font-family: monospace;
+      }
+      #wrapper {
+        width: 480px;
+        margin: 0 auto;
+      }
+      #canvas {
+        background: #ffffff;
+      }
+      #imgmapcode {
+        width: 480px;
+        height: 120px;
+        font-family: monospace;
+      }
+    </style>
+  </head>
+  
+  <body>
+    <div id="wrapper">
+      
+      <p>Area preview:</p>
+      <!-- our tools -->
+      <canvas id="canvas"><!-- --></canvas>
+      <p>Edit areas:&nbsp;<input type="button" value="new" id="new-button" />&nbsp;<input type="button" value="select" id="select-button" /></p>
+      <table id="areatable" style="display:none;">
+        <tr><td>href:</td><td>alt:</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+        <tr><td><input type="text" id="href-box" /></td><td><input type="text" id="alt-box" /></td><td><input type="button" value="save" id="save-button" /></td><td><input type="button" value="remove" id="remove-button" /></td></tr>
+      </table>
+      
+      <p>Code:</p>
+      <!-- A textarea you can use to post the genereated code to a server. -->
+      <textarea id="imgmapcode"><!-- --></textarea>
+      
+      <p>Live test:</p>
+      <!-- This is the image map we will manipulate. -->
+      <img src="ex_img.jpg" alt="Keyboard" usemap="#imgmap" id="mappedimg" />
+      <map name="imgmap" id="imgmap">
+        <area shape="rect" coords="80,20,400,170" href="http://strafspul.be" alt="up" title="up" />
+        <area shape="rect" coords="80,190,400,340" href="http://strafspul.be" alt="down" title="down" />
+      </map>
+      
+    </div>
+    
+    <script type="text/javascript" src="imgmaptool.js"></script>
+    <script>
+      window.onload = function () { 
+        imgMapTool.setup();
+      }
+    </script>
+  </body>
+</html>
